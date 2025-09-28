@@ -8,7 +8,7 @@ if (document.getElementById('blog-list')) {
       posts.forEach(post => {
         container.innerHTML += `
           <article>
-            <h2><a href="post.html?id=${post.id}">${post.title}</a></h2>
+            <h2><a href="post.html?id=${post.id}" style="color: var(--brand-text); text-decoration: none;">${post.title}</a></h2>
             <p><em>${post.date}</em></p>
             <p>${post.summary}</p>
           </article>
