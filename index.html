@@ -1,132 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vivek Phull </title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
-  </head>
-  <body class="bg-gray-50 text-gray-900 font-sans">
-    <!-- Navbar -->
-    <header class="fixed top-0 w-full bg-white shadow z-50">
-      <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
-        <h1 class="text-xl font-bold">Vivek Phull</h1>
-        <div class="space-x-6">
-          <a href="#about" class="hover:text-blue-600">About</a>
-          <a href="#projects" class="hover:text-blue-600">Projects</a>
-          <a href="#contact" class="hover:text-blue-600">Contact</a>
-        </div>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Blog</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>My Thoughts & Ideas</h1>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="h-screen flex flex-col justify-center items-center text-center px-4">
-      <h2 class="text-4xl md:text-6xl font-extrabold mb-4">
-        Hi, I'am <span class="text-blue-600">Vivek</span>
-      </h2>
-      <p class="text-lg md:text-xl text-gray-600 max-w-2xl">
-        My current interests are Microsoft technologies and Cyber security.
-      </p>
-      <div class="mt-6 space-x-4">
-        <a href="#projects" class="px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700">
-          View Projects
-        </a>
-        <a href="#contact" class="px-6 py-3 bg-gray-200 text-gray-900 rounded-xl shadow hover:bg-gray-300">
-          Contact Me
-        </a>
-      </div>
-    </section>
+  <main id="blog-list">
+    <p>Loading posts...</p>
+  </main>
 
-    <!-- About Section -->
-    <section id="about" class="max-w-4xl mx-auto py-20 px-4">
-      <h3 class="text-3xl font-bold mb-6">About Me</h3>
-      <p class="text-gray-700 leading-relaxed">
-       Hi, I am a System Engineer specializing in Microsoft 365, Windows Server, and Entra ID.
-I’m currently pursuing a Master of Cyber Security, which allows me to deepen my expertise in securing modern IT environments and bridging the gap between infrastructure and security.
+  <footer>
+    <p>&copy; 2025 My Personal Blog</p>
+  </footer>
 
-Before moving into engineering, I built a strong foundation in sales, business development, and people management, where I honed my skills in consultative selling, client engagement, and leadership. This experience gives me a unique ability to not only implement technical solutions but also understand business needs, communicate effectively with stakeholders, and deliver outcomes that align with organizational goals.
-
-I’m passionate about the intersection of technology, security, and business strategy, and I’m always looking for opportunities to grow, contribute, and create value through a mix of technical expertise and people-first thinking.
-      </p>
-    </section>
-
-     <!-- Projects Section -->
-<!--     <section id="projects" class="bg-gray-100 py-20 px-4"> -->
-<!--       <div class="max-w-6xl mx-auto"> -->
-<!--         <h3 class="text-3xl font-bold mb-10 text-center">Projects</h3> -->
-<!--         <div class="grid md:grid-cols-3 gap-8"> -->
-<!--           Project Card -->
-<!--           <div class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition"> -->
-<!--             <h4 class="text-xl font-semibold mb-2">Project One</h4> -->
-<!--             <p class="text-gray-600 mb-4">Brief description of your project.</p> -->
-<!--             <a href="#" class="text-blue-600 hover:underline">View on GitHub →</a> -->
-<!--           </div> -->
-<!--           <div class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition"> -->
-<!--             <h4 class="text-xl font-semibold mb-2">Project Two</h4> -->
-<!--             <p class="text-gray-600 mb-4">Another cool project description.</p> -->
-<!--             <a href="#" class="text-blue-600 hover:underline">View on GitHub →</a> -->
-<!--           </div> -->
-<!--           <div class="bg-white rounded-2xl shadow p-6 hover:shadow-lg transition"> -->
-<!--             <h4 class="text-xl font-semibold mb-2">Project Three</h4> -->
-<!--             <p class="text-gray-600 mb-4">Something fun and useful you built.</p> -->
-<!--             <a href="#" class="text-blue-600 hover:underline">View on GitHub →</a> -->
-<!--           </div> -->
-<!--         </div> -->
-<!--       </div> -->
-<!--     </section>  -->
-
-    <!-- Contact Section -->
-    <section id="contact" class="max-w-4xl mx-auto py-20 px-4 text-center">
-  <h3 class="text-3xl font-bold mb-6">Get in Touch</h3>
-  <p class="text-gray-700 mb-8">
-    I’d love to hear from you and have a chat about tech!
-  </p>
-
-  <form action="https://formspree.io/f/meoldyyy" method="POST" class="max-w-md mx-auto space-y-4">
-    <!-- Name -->
-    <input 
-      type="text" 
-      name="name" 
-      placeholder="Your Name" 
-      required
-      class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-    />
-
-    <!-- Email -->
-    <input 
-      type="email" 
-      name="email" 
-      placeholder="Your Email" 
-      required
-      class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-    />
-
-    <!-- Message -->
-    <textarea 
-      name="message" 
-      rows="5" 
-      placeholder="Your Message" 
-      required
-      class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-    ></textarea>
-
-    <!-- Submit Button -->
-    <button 
-      type="submit" 
-      class="px-6 py-3 bg-blue-600 text-white rounded-xl shadow hover:bg-blue-700 transition">
-      Send Message
-    </button>
-  </form>
-</section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-6 text-center">
-      <p>© <span id="year"></span> Vivek Phull</p>
-    </footer>
-
-    <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
+
