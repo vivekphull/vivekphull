@@ -1,0 +1,16 @@
+[
+  {
+    "id": "innovation",
+    "title": "Why Innovation Matters",
+    "date": "2025-09-28",
+    "summary": "A reflection on how technology shapes our future...",
+    "content": "<p>Innovation drives progress. From vaccines to AI, the ability to solve problems creatively is what moves humanity forward...</p>"
+  },
+  {
+    "id": "books",
+    "title": "Books That Changed My Thinking",
+    "date": "2025-09-20",
+    "summary": "Some books leave a lasting impression. Here are a few...",
+    "content": "<p>Reading expands the mind. These books challenged my assumptions and opened new perspectives...</p>"
+  }
+]
