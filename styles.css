@@ -1,23 +1,39 @@
 :root {
-  --primary: #1e90ff;
-  --bg: #f9fafb;
-  --text: #1f2937;
-  --card-bg: #ffffff;
-  --shadow: rgba(0, 0, 0, 0.05);
+  --background-rgb: 8, 8, 12;
+  --background: rgb(var(--background-rgb));
+  --foreground-rgb: 255, 255, 255;
+  --foreground: rgb(var(--foreground-rgb));
+  --brand-left-rgb: 84, 158, 226;
+  --brand-left: rgb(var(--brand-left-rgb));
+  --brand-right-rgb: 0, 180, 115;
+  --brand-right: rgb(var(--brand-right-rgb));
+  --brand-text-rgb: 50, 200, 130;
+  --brand-text: rgb(var(--brand-text-rgb));
 }
 
-body {
+html, body {
+  font-family: 'Urbanist', sans-serif;
+  color: var(--foreground);
+  background: var(--background);
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--foreground-rgb), .2) rgba(var(--foreground-rgb), .05);
 }
 
 .hero {
-  background: linear-gradient(135deg, #1e90ff 0%, #6f9eff 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--brand-left), var(--brand-right));
   padding: 4rem 2rem;
   text-align: center;
+  color: var(--foreground);
 }
 
 .hero h1 {
@@ -25,38 +41,39 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.navbar {
-  background-color: white;
-  box-shadow: 0 2px 4px var(--shadow);
+.hero p {
+  font-size: 1.2rem;
+  color: var(--brand-text);
 }
 
-.nav-container {
-  max-width: 960px;
-  margin: auto;
+.navbar {
+  background: var(--background);
   padding: 1rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(var(--foreground-rgb), 0.1);
 }
 
-.nav-container a {
+.navbar a {
+  color: var(--foreground);
   text-decoration: none;
-  color: var(--text);
   font-weight: 600;
 }
 
 .grid-container {
-  max-width: 960px;
-  margin: 2rem auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  padding: 2rem;
 }
 
 article {
-  background-color: var(--card-bg);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--foreground);
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px var(--shadow);
+  box-shadow: 0 4px 12px rgba(var(--foreground-rgb), 0.05);
   transition: transform 0.2s ease;
 }
 
@@ -64,15 +81,9 @@ article:hover {
   transform: translateY(-4px);
 }
 
-article h2 {
-  margin-top: 0;
-  font-size: 1.25rem;
-}
-
 footer {
   text-align: center;
   padding: 2rem;
-  background-color: white;
   font-size: 0.9rem;
-  color: #6b7280;
+  color: var(--brand-text);
 }
