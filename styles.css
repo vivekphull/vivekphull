@@ -1,28 +1,29 @@
 body {
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background: #f4f4f4;
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fa;
   color: #333;
 }
 
 .hero {
-  background: url('banner.jpg') center/cover no-repeat;
+  background: url('assets/banner.jpg') center/cover no-repeat;
   height: 60vh;
   position: relative;
   color: white;
 }
 
 .hero .overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .hero h1 {
-  font-family: 'Lora', serif;
+  font-family: 'Merriweather', serif;
   font-size: 3rem;
   margin: 0;
 }
@@ -43,7 +44,7 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
   padding: 2rem;
 }
@@ -56,7 +57,7 @@ article {
 }
 
 article h2 {
-  font-family: 'Lora', serif;
+  font-family: 'Merriweather', serif;
   margin-top: 0;
 }
 
