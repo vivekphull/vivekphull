@@ -1,4 +1,4 @@
-// Load posts on homepage
+// Homepage: Load blog previews
 if (document.getElementById('blog-list')) {
   fetch('posts.json')
     .then(res => res.json())
@@ -17,7 +17,7 @@ if (document.getElementById('blog-list')) {
     });
 }
 
-// Load individual post
+// Post page: Load full content
 if (document.getElementById('post-content')) {
   const params = new URLSearchParams(window.location.search);
   const postId = params.get('id');
