@@ -8,23 +8,3 @@
   status = 200
 ```
 
-### 4. Verify Environment Variable
-
-1. In Netlify → Site configuration → Environment variables
-2. Make sure `ANTHROPIC_API_KEY` is set
-3. The key should start with `sk-ant-`
-
-### 5. Force a Clean Deploy
-
-1. Go to **Deploys** tab
-2. Click **"Trigger deploy"** → **"Clear cache and deploy site"**
-3. Wait for deploy to finish
-4. Try again
-
----
-
-## 🔧 Quick Test
-
-Try accessing this URL directly in your browser:
-```
-https://vivekphull.online/.netlify/functions/chat
