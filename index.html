@@ -269,7 +269,7 @@
                     content: question
                 });
 
-                const systemPrompt = `You are ${figure}. Respond to questions as if you are this historical figure, drawing on their known personality, beliefs, manner of speaking, and historical context. Stay in character and provide responses that reflect their perspective and time period. Be educational but also entertaining. Keep responses concise (1 paragraph unless asked for more detail).`;
+                const systemPrompt = `You are ${figure}. Respond to questions in one line as if you are this historical figure, drawing on their known personality, beliefs, manner of speaking, and historical context. Stay in character and provide responses that reflect their perspective and time period. Be concise and entertaining. Keep responses concise.`;
 
                 const response = await fetch('/api/chat', {
                     method: 'POST',
@@ -315,28 +315,9 @@ function addMessage(role, content, figure = '') {
     
     const label = role === 'user' ? 'You' : (figure || 'Historical Figure');
     
-    // Actual Donald Trump GIFs - displayed AFTER the message
-    const trumpGifs = [
-        'https://media.giphy.com/media/l0IylOPCNkiqOgMyA/giphy.gif',  // Trump thumbs up
-        'https://media.giphy.com/media/5ev3alRsskWA0/giphy.gif',      // Trump pointing
-        'https://media.giphy.com/media/3oEjHWTuLfI3CFsuMo/giphy.gif', // Trump dancing
-        'https://media.giphy.com/media/26tn8zNgXL3msKdO0/giphy.gif',  // Trump waving
-        'https://media.giphy.com/media/26tP0Sztn21MW6yz6/giphy.gif',  // Trump clapping
-        'https://media.giphy.com/media/lOIuDYVIo8C1y5oMQB/giphy.gif', // Trump serious
-        'https://media.giphy.com/media/lRZjlasctAcvu/giphy.gif'       // Trump smiling
-    ];
-    
-    const randomGif = trumpGifs[Math.floor(Math.random() * trumpGifs.length)];
-    
-    // Add Trump GIF AFTER assistant messages
-    const trumpGif = role === 'assistant' ? 
-        `<img src="${randomGif}" style="width: 120px; border-radius: 8px; margin-top: 10px; display: block;">` : 
-        '';
-    
     messageDiv.innerHTML = `
         <div class="message-label">${label}</div>
         <div class="message-content">${escapeHtml(content)}</div>
-        ${trumpGif}
     `;
     
     chatContainer.appendChild(messageDiv);
