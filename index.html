@@ -315,26 +315,28 @@ function addMessage(role, content, figure = '') {
     
     const label = role === 'user' ? 'You' : (figure || 'Historical Figure');
     
-    // Random Trump GIFs
+    // Actual Donald Trump GIFs - displayed AFTER the message
     const trumpGifs = [
-        'https://media.giphy.com/media/l0HlQ7LRalQqdWfao/giphy.gif',
-        'https://media.giphy.com/media/l0MYGb8hCH1Md6UiA/giphy.gif',
-        'https://media.giphy.com/media/1luXLMeNxsaNFMUuOe/giphy.gif',
-        'https://media.giphy.com/media/14tvbepZ8vhU40/giphy.gif',
-        'https://media.giphy.com/media/xT1XGU1AHz9Fe8tmp2/giphy.gif'
+        'https://media.giphy.com/media/l0IylOPCNkiqOgMyA/giphy.gif',  // Trump thumbs up
+        'https://media.giphy.com/media/5ev3alRsskWA0/giphy.gif',      // Trump pointing
+        'https://media.giphy.com/media/3oEjHWTuLfI3CFsuMo/giphy.gif', // Trump dancing
+        'https://media.giphy.com/media/26tn8zNgXL3msKdO0/giphy.gif',  // Trump waving
+        'https://media.giphy.com/media/26tP0Sztn21MW6yz6/giphy.gif',  // Trump clapping
+        'https://media.giphy.com/media/lOIuDYVIo8C1y5oMQB/giphy.gif', // Trump serious
+        'https://media.giphy.com/media/lRZjlasctAcvu/giphy.gif'       // Trump smiling
     ];
     
     const randomGif = trumpGifs[Math.floor(Math.random() * trumpGifs.length)];
     
-    // Add Trump GIF for assistant messages
+    // Add Trump GIF AFTER assistant messages
     const trumpGif = role === 'assistant' ? 
-        `<img src="${randomGif}" style="width: 100px; border-radius: 8px; margin-bottom: 10px; display: block;">` : 
+        `<img src="${randomGif}" style="width: 120px; border-radius: 8px; margin-top: 10px; display: block;">` : 
         '';
     
     messageDiv.innerHTML = `
         <div class="message-label">${label}</div>
-        ${trumpGif}
         <div class="message-content">${escapeHtml(content)}</div>
+        ${trumpGif}
     `;
     
     chatContainer.appendChild(messageDiv);
