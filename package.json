@@ -1,7 +1,6 @@
 {
   "name": "vivekphull-online",
   "version": "1.0.0",
-  "dependencies": {
-    "node-fetch": "^2.7.0"
-  }
+  "type": "commonjs",
+  "dependencies": {}
 }
