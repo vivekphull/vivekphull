@@ -269,7 +269,7 @@
                     content: question
                 });
 
-                const systemPrompt = `You are ${figure}. Respond to questions as if you are this historical figure, drawing on their known personality, beliefs, manner of speaking, and historical context. Stay in character and provide responses that reflect their perspective and time period. Be educational but also entertaining. Keep responses concise (2-4 paragraphs unless asked for more detail).`;
+                const systemPrompt = `You are ${figure}. Respond to questions as if you are this historical figure, drawing on their known personality, beliefs, manner of speaking, and historical context. Stay in character and provide responses that reflect their perspective and time period. Be educational but also entertaining. Keep responses concise (1 paragraph unless asked for more detail).`;
 
                 const response = await fetch('/api/chat', {
                     method: 'POST',
