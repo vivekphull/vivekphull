@@ -308,21 +308,38 @@
             }
         }
 
-        function addMessage(role, content, figure = '') {
-            const chatContainer = document.getElementById('chat-container');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${role}`;
-            
-            const label = role === 'user' ? 'You' : (figure || 'Historical Figure');
-            
-            messageDiv.innerHTML = `
-                <div class="message-label">${label}</div>
-                <div class="message-content">${escapeHtml(content)}</div>
-            `;
-            
-            chatContainer.appendChild(messageDiv);
-            chatContainer.scrollTop = chatContainer.scrollHeight;
-        }
+function addMessage(role, content, figure = '') {
+    const chatContainer = document.getElementById('chat-container');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${role}`;
+    
+    const label = role === 'user' ? 'You' : (figure || 'Historical Figure');
+    
+    // Random Trump GIFs
+    const trumpGifs = [
+        'https://media.giphy.com/media/l0HlQ7LRalQqdWfao/giphy.gif',
+        'https://media.giphy.com/media/l0MYGb8hCH1Md6UiA/giphy.gif',
+        'https://media.giphy.com/media/1luXLMeNxsaNFMUuOe/giphy.gif',
+        'https://media.giphy.com/media/14tvbepZ8vhU40/giphy.gif',
+        'https://media.giphy.com/media/xT1XGU1AHz9Fe8tmp2/giphy.gif'
+    ];
+    
+    const randomGif = trumpGifs[Math.floor(Math.random() * trumpGifs.length)];
+    
+    // Add Trump GIF for assistant messages
+    const trumpGif = role === 'assistant' ? 
+        `<img src="${randomGif}" style="width: 100px; border-radius: 8px; margin-bottom: 10px; display: block;">` : 
+        '';
+    
+    messageDiv.innerHTML = `
+        <div class="message-label">${label}</div>
+        ${trumpGif}
+        <div class="message-content">${escapeHtml(content)}</div>
+    `;
+    
+    chatContainer.appendChild(messageDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
 
         function escapeHtml(text) {
             const div = document.createElement('div');
