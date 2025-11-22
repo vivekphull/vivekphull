@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 exports.handler = async (event, context) => {
   // Enable CORS
   const headers = {
@@ -52,7 +54,8 @@ exports.handler = async (event, context) => {
         headers,
         body: JSON.stringify({ 
           error: 'API request failed', 
-          details: errorData 
+          details: errorData,
+          status: response.status
         })
       };
     }
