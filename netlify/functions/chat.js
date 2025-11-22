@@ -1,7 +1,4 @@
-const fetch = require('node-fetch');
-
 exports.handler = async (event, context) => {
-  // Enable CORS
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -9,16 +6,10 @@ exports.handler = async (event, context) => {
     'Content-Type': 'application/json'
   };
 
-  // Handle preflight requests FIRST
   if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers,
-      body: ''
-    };
+    return { statusCode: 200, headers, body: '' };
   }
 
-  // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
@@ -28,10 +19,19 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    // Parse the request body
+    if (!process.env.ANTHROPIC_API_KEY) {
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: 'API key not configured' })
+      };
+    }
+
     const { model, max_tokens, system, messages } = JSON.parse(event.body);
 
-    // Make request to Claude API
+    // Use native fetch (Node 18+) or import node-fetch
+    const fetch = globalThis.fetch || require('node-fetch');
+    
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -39,28 +39,22 @@ exports.handler = async (event, context) => {
         'x-api-key': process.env.ANTHROPIC_API_KEY,
         'anthropic-version': '2023-06-01'
       },
-      body: JSON.stringify({
-        model,
-        max_tokens,
-        system,
-        messages
-      })
+      body: JSON.stringify({ model, max_tokens, system, messages })
     });
 
+    const data = await response.json();
+    
     if (!response.ok) {
-      const errorData = await response.text();
       return {
         statusCode: response.status,
         headers,
         body: JSON.stringify({ 
-          error: 'API request failed', 
-          details: errorData,
-          status: response.status
+          error: 'Anthropic API error', 
+          status: response.status,
+          message: data
         })
       };
     }
-
-    const data = await response.json();
 
     return {
       statusCode: 200,
@@ -73,8 +67,8 @@ exports.handler = async (event, context) => {
       statusCode: 500,
       headers,
       body: JSON.stringify({ 
-        error: 'Internal server error', 
-        message: error.message 
+        error: 'Server error', 
+        message: error.message
       })
     };
   }
